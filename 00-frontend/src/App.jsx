@@ -1,16 +1,23 @@
 import React from 'react'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+import { Routes, Route } from 'react-router';
+import HomePage from './pages/HomePage';
+import AuthPage from './pages/AuthPage';
 
 const App = () => {
   return (
-    <header>
+    <>
       <SignedOut>
-        <SignInButton mode="modal" />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+        </Routes>
       </SignedOut>
       <SignedIn>
-        <UserButton />
+        <Routes>
+          <Route path='/' element={<AuthPage />} />
+        </Routes>
       </SignedIn>
-    </header>
+    </>
   )
 }
 
